@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode=production",
+    "build": "webpack --mode production --config webpack.config.js",
     "dev": "webpack --config webpack.config.dev.js"
   },
   "repository": {
@@ -41,5 +41,8 @@
     "url-loader": "^4.1.1",
     "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "clean-webpack-plugin": "^4.0.0"
   }
 }
