@@ -4,13 +4,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
-    assetModuleFilename: 'assets/images/[hash][ext][query]',
+    assetModuleFilename: 'assets/images/[hash][ext][query]'
   },
   resolve: {
     extensions: ['.js'],
@@ -39,7 +40,7 @@ module.exports = {
       },
       {
         test: /\.png/,
-        type: 'asset/resource',
+        type: 'asset/resource'
       },
       {
         test: /\.(woff|woff2)$/,
@@ -47,12 +48,12 @@ module.exports = {
           loader: 'url-loader',
           options: {
             limit: 10000,
-            minetype: "application/font-woff",
-            name:" [name].[contenthash].[ext]",
-            outputPath: "./assets/fonts",
-            publicPath: "../assets/fonts",
+            mimetype: "application/font-woff",
+            name: "[name].[contenthash].[ext]",
+            outputPath: "./assets/fonts/",
+            publicPath: "../assets/fonts/",
             esModule: false,
-          }
+          },
         }
       }
     ]
@@ -64,7 +65,7 @@ module.exports = {
       filename: './index.html'
     }),
     new MiniCssExtractPlugin({
-      filename: 'assets/[name].contenthash].css'
+      filename: 'assets/[name].[contenthash].css'
     }),
     new CopyPlugin({
       patterns: [
@@ -73,10 +74,11 @@ module.exports = {
           to: "assets/images"
         }
       ]
-    })
+    }),
+    new Dotenv(),
   ],
   optimization: {
-    minimizer: true,
+    minimize: true,
     minimizer: [
       new CssMinimizerPlugin(),
       new TerserPlugin(),
