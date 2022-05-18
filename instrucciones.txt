@@ -1,0 +1,11 @@
+* npm install webpack webpack-cli -D
+* modos de copilaciones
+        ** npx webpack --mode production
+        ** npx webpack --mode development
+* se crea archico webpack.config.js
+* npx webpack --mode production --config webpack.config.js
+* npm install babel-loader @babel/core @babel/preset-env @babel/plugin-transform-runtime -D
+* npm install html-webpack-plugin -D
+* npm i mini-css-extract-plugin css-loader -D
+* npm install stylus stylus-loader -D
+* npm install copy-webpack-plugin -D
