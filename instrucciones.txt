@@ -9,3 +9,5 @@
 * npm i mini-css-extract-plugin css-loader -D
 * npm install stylus stylus-loader -D
 * npm install copy-webpack-plugin -D
+* npm install url-loader file-loader -D
+* npm install css-minimizer-webpack-plugin terser-webpack-plugin -D
